@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Ver pdf{% endblock title %}
+
+{% block body %}
+	<br>
+	<div style="text-align:center">
+		<h1>
+			Valide el formulario
+		</h1>
+	</div>
+	<br>
+	<div style="text-align:center">
+		<iframe id="pdf_viewer" src="{{ showPath }}" width="45%" height="700px"></iframe>
+	</div>
+	<div style="text-align:center">
+		<a href="{% url 'usuario_app:home' %}" class="alert button">Volver</a>
+		<a href="{% url 'usuario_app:pdfFirmado' %}" class="button">Firmar</a>
+	</div>
+
+{% endblock body %}

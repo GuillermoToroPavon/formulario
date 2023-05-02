@@ -1,0 +1,49 @@
+{% load static %}
+<html>
+<head>
+<style>
+    @page {
+        size: a4 portrait;
+        @frame header_frame {
+            -pdf-frame-content: header_content;
+            left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+        }
+        @frame content_frame {
+            left: 50pt; width: 512pt; top: 90pt; height: 632pt;
+        }
+        @frame footer_frame {
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <div id="header_content">
+        <img src="/neun/cursos/dj/env/bin/formulario/static/images/tangram.png" width="40" height="40" style="margin-top: 25px;">
+        <a style="font-size: 40px; margin-bottom: 50px; color: blue;">
+            Tangram
+        </a>
+    </div>
+    <div>
+        <hr>
+    </div>
+    <div style="text-align: right; border-top: black;" id="footer_content">
+        Pág
+        <pdf:pagenumber>
+        de
+        <pdf:pagecount>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Tangram
+        <img src="/neun/cursos/dj/env/bin/formulario/static/images/tangram.png" width="20" height="20">
+    </div>
+    <br>
+    <h5>Estimado señor@ {{formulario.name}} {{formulario.firstSurname}} {{formulario.secondSurname}} con dni {{formulario.dni}},</h5>ha sido almacenada su solicitud:<br>
+    <div>
+        <p>
+            {{formulario.text}}
+        </p>
+    </div>
+</body>
+</html>
