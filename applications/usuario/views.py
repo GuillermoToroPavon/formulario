@@ -12,12 +12,14 @@ import os
 # Create your views here.
 
 #Función que devuelve true si la letra del dni esta correcta, false para incorrecta
-#Arreglar (era demasiado larga y pesada)
 def validateDNI(dni):
 	numbers = dni[0:8]
 	letter = dni[8:9]
 	validate = int(numbers)%23
 	returned = False
+	letrasValidas = "TRWAGMYFPDXBNJZSQVHLCKE"
+	if (letter == letrasValidas[validate]):
+		returned = True
 	return returned
 
 
