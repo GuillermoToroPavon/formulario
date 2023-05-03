@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Registrar{% endblock title %}
+{% block body %}
+	<br><br><br><br>
+	<div class="grid-container">
+		<div class="grid-x">
+			<h1 class="cell" style="text-align:center;">Enviar petición</h1>
+			<form method="POST" class="cell" onsubmit="return validarFormulario()">{% csrf_token %}
+				{{form.as_p}}
+				<div style="text-align:center;">
+					<a type="submit" class="alert button">Borrar</a>
+					<button class="button">Enviar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script>
+		function validarFormulario() {
+			var dniInput = document.getElementById("id_dni");
+			var dni = dniInput.value;
+			var numeros = dni.substring(0, 8);
+	  
+			if (dni.length != 9) {
+				dniInput.style.border = "2px solid red";
+				alert("El DNI debe tener 9 caracteres (ocho números y una letra mayúsucla.");
+				return false;
+			}
+  
+			var letra = dni.charAt(8).toUpperCase();
+			var letrasValidas = "TRWAGMYFPDXBNJZSQVHLCKE";
+			var posicionLetra = numeros % 23;
+	  
+			if (letra != letrasValidas.charAt(posicionLetra)) {
+				dniInput.style.border = "2px solid red";
+				alert("El DNI introducido es inválido.");
+				return false;
+			}
+	  
+			return true;
+		}
+	</script>
+{% endblock body %}

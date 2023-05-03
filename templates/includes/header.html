@@ -1,0 +1,16 @@
+{% load static %}
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li>
+        <img src="{% static 'images/tangram.png' %}" width="40" height="40">
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'usuario_app:home' %}">Inicio</a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" href="{% url 'usuario_app:añadir_usuario' %}">Registrar</a>
+      </li>
+    </ul>
+  </div>
+</nav>

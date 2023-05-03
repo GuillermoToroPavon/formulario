@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Pdf Firmado{% endblock title %}
+
+{% block body %}
+
+	<br>
+	<div style="text-align:center">
+		<h1>
+			PDF Firmado
+		</h1>
+	</div>
+	<br>
+	<div style="text-align:center">
+		<iframe id="pdf_viewer" src="{{ showPath }}" width="45%" height="700px"></iframe>
+	</div>
+	<div style="text-align:center">
+		<a href="{% url 'usuario_app:home' %}" class="alert button">Volver</a>
+		<a href="{{ showPath }}" download="pdfFirmado.pdf" class="button">Descargar</a>
+	</div>
+
+{% endblock body %}
